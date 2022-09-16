@@ -1,0 +1,142 @@
+:root {
+    --primary: #d7dd86;
+    --secondary: #8670e9;
+    --back: #f1f1f1;
+    --action: rgb(219, 110, 170);
+    --border-radius: 15px;
+    --btn-padding: 20px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*aligne la page*/
+body {
+    background-color: var(--back);
+    font-family: sans-serif;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*Boite avec le score*/
+.score {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    display: grid;
+    grid-template-columns: repeat(2, 200px);
+    gap: 20px;
+    text-align: center;
+    font-size: 35px;
+    background-color: rgb(163, 99, 115);
+    padding: var(--btn-padding);
+    border-radius: 15px;
+    color: azure;
+}
+
+/*Bouton recommencer*/
+#reset {
+    font-size: 50px;
+    grid-column: span 2;
+    /*Fait que le bouton en dessous des nom*/
+    cursor: pointer;
+}
+
+/*Couleur du hover sur le bouton recommencer */
+#reset:hover {
+    color: var(--action);
+}
+
+.action {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+#message {
+    font-size: 25px;
+}
+
+/*Bouton tour suivant qui ne s'affiche que quand le tour est fini*/
+#next {
+    margin-top: 20px;
+    padding: 10px 30px;
+    background-color: var(--action);
+    color: white;
+    border-radius: var(--border-radius);
+    visibility: hidden;
+    cursor: pointer;
+}
+
+/*Lorsque le bouton tour suivant est activé, il devient visible*/
+#next.active {
+    visibility: visible;
+}
+
+/*Affichage de la boite du chifoumi*/
+.jeu {
+    border-top: 1px solid black;
+    padding-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);  /*Met les deux div en comn avec une taille pour chacune*/
+    gap: 200px; /*Espacement*/
+}
+
+/*Chaque div qui contient les élément du chifoumi*/
+.button {
+    display: flex;
+    align-items: center;
+    font-size: 45px;
+    padding: var(--btn-padding);
+}
+
+
+.btn-joueur, .btn-ordi {
+    border-radius: 15px;
+    transition: all 0.2s ease; /*temps de transition*/
+}
+
+.btn-joueur {
+    cursor: pointer;
+    background-color: white;
+}
+/*quand on passe au dessus du chifoumi du joueur il y a un hover */
+.btn-joueur:hover {
+    color: var(--primary);
+}
+
+.button p {
+    margin-left: 20px;
+}
+
+.button:not(:last-child) {
+    margin-bottom: 40px;
+}
+
+
+.btn-joueur.desactivated {
+    background-color: var(--back);
+    cursor: default;
+}
+
+.btn-joueur.desactivated:hover, .btn-joueur.active {
+    color: inherit;
+}
+
+.btn-joueur.active {
+    background-color: var(--primary);
+}
+
+.btn-ordi.active {
+    background-color: var(--secondary);
+}
+
+img {
+    width: 100px;
+    ;
+    height: 100px;
+    ;
+}
